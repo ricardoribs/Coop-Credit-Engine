@@ -1,30 +1,41 @@
+# 🏦 Coop-Credit Engine: Pipeline de Risco de Crédito com Spark
+
+![CI Status](https://github.com/ricardoribs/coop-credit-engine/actions/workflows/ci.yml/badge.svg)
+![Spark](https://img.shields.io/badge/Big%20Data-PySpark-orange?style=for-the-badge&logo=apachespark)
+![Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow-blue?style=for-the-badge&logo=apacheairflow)
+![Tests](https://img.shields.io/badge/Tests-Pytest-green?style=for-the-badge&logo=pytest)
+
+> **Contexto:** Projeto de Engenharia de Dados desenvolvido para automatizar a análise de concessão e risco de crédito em uma Cooperativa, utilizando arquitetura distribuída e boas práticas de Engenharia de Software (CI/CD, Testes Unitários e Modularização).
+
+---
+
 ## 📌 1. Problema de Negócio
-Uma Cooperativa processa milhares de solicitações de empréstimo por dia.
-O processo manual atrasa aprovações, aumenta erros e não escala.
 
-🎯 **Objetivo:** Criar um Decision Engine capaz de aprovar ou reprovar crédito em segundos, cruzando:
+Uma Cooperativa processa milhares de solicitações de empréstimo por dia. O processo manual atrasa aprovações, aumenta erros e não escala.
 
-- renda declarada  
-- dívidas de mercado  
-- restrições de bureaus externos  
+🎯 **Objetivo:** Criar um *Decision Engine* capaz de aprovar ou reprovar crédito em segundos, cruzando:
+* Renda declarada
+* Dívidas de mercado
+* Restrições de bureaus externos
 
 Tudo num pipeline confiável e totalmente automatizado.
 
 ---
 
 ## ⚙️ 2. Arquitetura do Sistema
+
 Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
+* **Código Modular:** Funções puras, testáveis e desacopladas do Airflow (`src/`).
+* **Qualidade:** Testes unitários para validar lógica de crédito antes do deploy.
+* **CI/CD:** GitHub Actions para validação contínua.
+* **Infraestrutura:** Containers reproduzíveis (Spark + Airflow).
 
-- código modular (funções puras, testáveis, desacopladas do Airflow)  
-- testes unitários para validar lógica de crédito  
-- CI/CD com GitHub Actions  
-- containers reproduzíveis (Spark + Airflow)  
+### 🔧 Stack Tecnológica
 
-## 🔧 Stack Tecnológica
-- **Processamento:** Apache Spark (PySpark) – compatível com Databricks  
-- **Orquestração:** Apache Airflow 2.9  
-- **Infraestrutura:** Docker/JDK integrado  
-- **Qualidade:** Pytest + GitHub Actions  
+* **Processamento:** Apache Spark (PySpark) – *compatível com Databricks*
+* **Orquestração:** Apache Airflow 2.9
+* **Infraestrutura:** Docker/JDK integrado
+* **Qualidade:** Pytest + GitHub Actions
 
 ---
 
@@ -50,7 +61,7 @@ graph LR
 
     style C fill:#ff9900,stroke:#333,stroke-width:2px
     style D fill:#fafafa,stroke:#333
-    style E fill:#fafafa,stroke:#333
+    style E fill:#fafafa,stroke:#333```
 
 
 ## ⚙️ Regras de Concessão (Lógica de Negócio)
