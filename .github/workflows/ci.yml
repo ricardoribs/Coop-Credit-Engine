@@ -1,0 +1,49 @@
+name: Pipeline de Qualidade (CI)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  testes-automatizados:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Baixa o seu código para a máquina do GitHub
+    - name: Checkout do repositório
+      uses: actions/checkout@v3
+
+    # 2. Instala Python
+    - name: Configurar Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    # 3. Instala Java (Obrigatório para o Spark funcionar no teste)
+    - name: Configurar Java (Para PySpark)
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    # 4. Instala as bibliotecas do requirements.txt
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 5. Roda o formatador de código (Black) para ver se está bonito
+    - name: Verificar Formatação (Linting)
+      run: |
+        # O flag --check apenas avisa se estiver feio, não muda o arquivo
+        black --check src/ dags/
+
+    # 6. Roda os Testes Unitários (A Hora da Verdade)
+    - name: Rodar Testes com Pytest
+      env:
+        # Garante que o Python encontre a pasta 'src'
+        PYTHONPATH: ${{ github.workspace }}
+      run: |
+        pytest tests/ -v

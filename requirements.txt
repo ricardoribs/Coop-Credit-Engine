@@ -1,0 +1,7 @@
+apache-airflow==2.9.1
+apache-airflow-providers-postgres
+pandas
+pyspark
+psycopg2-binary
+pytest
+black
