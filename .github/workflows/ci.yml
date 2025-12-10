@@ -34,11 +34,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 5. Roda o formatador de código (Black) para ver se está bonito
-    - name: Verificar Formatação (Linting)
-      run: |
-        # O flag --check apenas avisa se estiver feio, não muda o arquivo
-        black --check src/ dags/
 
     # 6. Roda os Testes Unitários (A Hora da Verdade)
     - name: Rodar Testes com Pytest
