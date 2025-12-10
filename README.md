@@ -64,7 +64,7 @@ O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
 
  **Exemplo de Código Modularizado (src/transformations.py)**
 
-def aplicar_regras_credito(df):
+```def aplicar_regras_credito(df):
     return df.withColumn(
         "status_analise",
         when(
@@ -73,10 +73,11 @@ def aplicar_regras_credito(df):
             lit("REPROVADO_RISCO")
         ).otherwise(lit("APROVADO"))
     )
+```
 
 ## 📂 Estrutura do Projeto Profissional
 
-coop-credit-engine/
+```coop-credit-engine/
 ├── .github/workflows/   # Pipeline de CI/CD (GitHub Actions)
 ├── dags/                # Orquestração do Airflow
 ├── docs/                # Documentação e ADRs
@@ -85,6 +86,7 @@ coop-credit-engine/
 ├── docker-compose.yaml  # Infraestrutura como Código
 ├── Makefile             # Automação de comandos
 └── README.md            # Documentação Geral
+```
 
 ## 📸 Evidências de Execução
 
