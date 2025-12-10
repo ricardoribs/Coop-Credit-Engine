@@ -1,22 +1,8 @@
-# 🏦 Coop-Credit Engine  
-**Motor de Risco de Crédito com PySpark + Airflow + Docker (Arquitetura Databricks-Ready)**
-
-![CI Status](https://github.com/ricardoribs/coop-credit-engine/actions/workflows/ci.yml/badge.svg)
-![Spark](https://img.shields.io/badge/Big%20Data-PySpark-orange?style=for-the-badge&logo=apachespark)
-![Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow-blue?style=for-the-badge&logo=apacheairflow)
-![Tests](https://img.shields.io/badge/Tests-Pytest-green?style=for-the-badge&logo=pytest)
-
-> **Projeto completo de Engenharia de Dados**, com pipeline distribuído para análise automática de risco de crédito em uma Cooperativa.  
-> Inclui: regras de negócio, PySpark, Airflow, CI/CD e Testes Unitários.
-
----
-
-# 📌 **1. Problema de Negócio**
-
-Uma Cooperativa processa **milhares de solicitações de empréstimo por dia**.  
+## 📌 1. Problema de Negócio
+Uma Cooperativa processa milhares de solicitações de empréstimo por dia.
 O processo manual atrasa aprovações, aumenta erros e não escala.
 
-🎯 **Objetivo:** Criar um **Decision Engine** capaz de aprovar ou reprovar crédito em **segundos**, cruzando:
+🎯 **Objetivo:** Criar um Decision Engine capaz de aprovar ou reprovar crédito em segundos, cruzando:
 
 - renda declarada  
 - dívidas de mercado  
@@ -26,24 +12,23 @@ Tudo num pipeline confiável e totalmente automatizado.
 
 ---
 
-# ⚙️ **2. Arquitetura do Sistema**
-
+## ⚙️ 2. Arquitetura do Sistema
 Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
 
 - código modular (funções puras, testáveis, desacopladas do Airflow)  
 - testes unitários para validar lógica de crédito  
 - CI/CD com GitHub Actions  
-- containers ativos e reproduzíveis (Spark + Airflow)  
+- containers reproduzíveis (Spark + Airflow)  
 
-### 🔧 **Stack Tecnológica**
-- **Processamento:** Apache Spark (PySpark) – *compatível com Databricks*  
+## 🔧 Stack Tecnológica
+- **Processamento:** Apache Spark (PySpark) – compatível com Databricks  
 - **Orquestração:** Apache Airflow 2.9  
 - **Infraestrutura:** Docker/JDK integrado  
 - **Qualidade:** Pytest + GitHub Actions  
 
 ---
 
-# 🗺️ **3. Diagrama da Arquitetura**
+## 🗺️ 3. Diagrama da Arquitetura
 
 ```mermaid
 graph LR
@@ -66,6 +51,7 @@ graph LR
     style C fill:#ff9900,stroke:#333,stroke-width:2px
     style D fill:#fafafa,stroke:#333
     style E fill:#fafafa,stroke:#333
+
 
 ## ⚙️ Regras de Concessão (Lógica de Negócio)
 O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
