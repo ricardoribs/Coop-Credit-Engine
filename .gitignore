@@ -1,0 +1,13 @@
+# Ignorar logs do Airflow
+logs/
+*.log
+
+# Ignorar arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Ignorar configurações locais do VS Code
+.vscode/
+
+# Ignorar arquivos do sistema
+.DS_Store
