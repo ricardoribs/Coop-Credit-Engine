@@ -5,66 +5,40 @@
 ![Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow-blue?style=for-the-badge&logo=apacheairflow)
 ![Tests](https://img.shields.io/badge/Tests-Pytest-green?style=for-the-badge&logo=pytest)
 
-> **Contexto:** Projeto de Engenharia de Dados desenvolvido para automatizar a análise de concessão e risco de crédito em uma Cooperativa, utilizando arquitetura distribuída e boas práticas de Engenharia de Software (CI/CD, Testes Unitários e Modularização).
+> **Contexto:** Projeto de Engenharia de Dados desenvolvido para automatizar a análise de concessão e risco de crédito em uma Cooperativa, utilizando arquitetura distribuída e boas práticas de Engenharia de Software.
 
 ---
 
 ## 📌 1. Problema de Negócio
 
-Uma Cooperativa processa milhares de solicitações de empréstimo por dia. O processo manual atrasa aprovações, aumenta erros e não escala.
+Uma Cooperativa processa milhares de solicitações de empréstimo por dia. O processo manual atrasa aprovações e não escala.
 
-🎯 **Objetivo:** Criar um *Decision Engine* capaz de aprovar ou reprovar crédito em segundos, cruzando:
-* Renda declarada
-* Dívidas de mercado
-* Restrições de bureaus externos
-
-Tudo num pipeline confiável e totalmente automatizado.
+🎯 **Objetivo:** Criar um *Decision Engine* capaz de aprovar ou reprovar crédito em segundos, cruzando renda declarada e restrições de mercado.
 
 ---
 
 ## ⚙️ 2. Arquitetura do Sistema
 
 Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
-* **Código Modular:** Funções puras, testáveis e desacopladas do Airflow (`src/`).
-* **Qualidade:** Testes unitários para validar lógica de crédito antes do deploy.
-* **CI/CD:** GitHub Actions para validação contínua.
-* **Infraestrutura:** Containers reproduzíveis (Spark + Airflow).
+* **Modularização:** Código desacoplado da orquestração.
+* **Qualidade:** Testes unitários com Pytest.
+* **CI/CD:** Validação contínua via GitHub Actions.
+* **Infraestrutura:** Docker com Spark e Airflow integrados.
 
-### 🔧 Stack Tecnológica
-
-* **Processamento:** Apache Spark (PySpark) – *compatível com Databricks*
-* **Orquestração:** Apache Airflow 2.9
-* **Infraestrutura:** Docker/JDK integrado
-* **Qualidade:** Pytest + GitHub Actions
-
----
-
-## 🗺️ 3. Diagrama da Arquitetura
-
+### Diagrama de Fluxo
 
 ```mermaid
 graph LR
-    subgraph Fontes
-    A[Cadastro Cooperado] 
-    B[Bureau Externo]
-    end
+    A[Cadastro Cooperado] --> C{Cluster Spark}
+    B[Bureau Externo] --> C
+    C -->|Processamento| D[Motor de Regras]
+    D -->|Classificação| E[Aprovado/Reprovado]
+    E -->|Carga| F[(Data Warehouse)]
+    
+    style C fill:#ff9900,color:white
+    style F fill:#333,color:white
 
-    subgraph "Core (PySpark)"
-    A -->|Ingestão| C{Cluster Spark}
-    B -->|Ingestão| C
-    C -->|Transformação| D[Cálculo: Renda Comprometida]
-    D -->|Motor de Regras| E[Classificação de Risco]
-    end
-
-    subgraph Entrega
-    E -->|Persistência| F[(Data Warehouse PostgreSQL)]
-    end
-
-    style C fill:#ff9900,stroke:#333,stroke-width:2px
-    style D fill:#fafafa,stroke:#333
-    style E fill:#fafafa,stroke:#333
-
-
+---
 
 ## ⚙️ Regras de Concessão (Lógica de Negócio)
 O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
