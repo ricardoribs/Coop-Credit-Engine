@@ -44,7 +44,7 @@ coop-credit-engine/
 ├── tests/               # Testes Unitários Automatizados
 ├── docker-compose.yaml  # Infraestrutura como Código
 ├── Makefile             # Automação de comandos
-└── README.md            # Documentação Geral
+└── README.md            # Documentação Geral```
 
 ## 📸 Evidências de Execução
 
