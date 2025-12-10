@@ -41,6 +41,7 @@ Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
 
 ## 🗺️ 3. Diagrama da Arquitetura
 
+
 ```mermaid
 graph LR
     subgraph Fontes
@@ -62,6 +63,7 @@ graph LR
     style C fill:#ff9900,stroke:#333,stroke-width:2px
     style D fill:#fafafa,stroke:#333
     style E fill:#fafafa,stroke:#333```
+
 
 
 ## ⚙️ Regras de Concessão (Lógica de Negócio)
