@@ -33,12 +33,13 @@ def aplicar_regras_credito(df):
         ).otherwise(lit("APROVADO"))
     )
 
-## 📂 Estrutura do Projeto Profissional
+## 📂 4. Estrutura do Projeto
 
+```text
 coop-credit-engine/
 ├── .github/workflows/   # Pipeline de CI/CD (GitHub Actions)
 ├── dags/                # Orquestração do Airflow
-├── docs/                # Documentação e ADRs
+├── docs/images/         # Evidências
 ├── src/                 # Código Fonte (Lógica Pura Spark)
 ├── tests/               # Testes Unitários Automatizados
 ├── docker-compose.yaml  # Infraestrutura como Código
