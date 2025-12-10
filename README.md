@@ -25,7 +25,7 @@ Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
 * **CI/CD:** Validação contínua via GitHub Actions.
 * **Infraestrutura:** Docker com Spark e Airflow integrados.
 
-### Diagrama de Fluxo
+## Diagrama de Fluxo
 
 ```mermaid
 graph LR
@@ -36,7 +36,8 @@ graph LR
     E -->|Carga| F[(Data Warehouse)]
     
     style C fill:#ff9900,color:white
-    style F fill:#333,color:white
+    style F fill:#333,color:white```
+
 
 ---
 
@@ -52,7 +53,7 @@ O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
 
  **Exemplo de Código Modularizado (src/transformations.py)**
 
-def aplicar_regras_credito(df):
+```def aplicar_regras_credito(df):
     return df.withColumn(
         "status_analise",
         when(
@@ -60,7 +61,9 @@ def aplicar_regras_credito(df):
             (col("divida_total_mercado") > (col("renda_mensal") * 10)), 
             lit("REPROVADO_RISCO")
         ).otherwise(lit("APROVADO"))
-    )
+    )```
+
+---
 
 ## 📂 Estrutura do Projeto Profissional
 
@@ -74,6 +77,8 @@ coop-credit-engine/
 ├── Makefile             # Automação de comandos
 └── README.md            # Documentação Geral
 
+---
+
 ## 📸 Evidências de Execução
 
 ### 1. Pipeline de Dados (Airflow)
@@ -84,6 +89,7 @@ Fluxo completo de ingestão, processamento Spark e carga no DW executado com suc
 Consulta final demonstrando a aplicação das regras. Note que clientes com dívidas altas ou restrições foram automaticamente classificados como `REPROVADO_RISCO`.
 ![Tabela SQL](https://github.com/ricardoribs/Coop-Credit-Engine/blob/main/resultado.PNG)        
 
+---
 
 ## 🚀 Como Executar
 
