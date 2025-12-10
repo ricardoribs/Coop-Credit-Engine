@@ -54,7 +54,9 @@ graph LR
 ---
 ## ⚙️ Regras de Concessão (Lógica de Negócio)
 O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
- **1. Cálculo de Capacidade:** O limite da parcela não pode exceder 30% da renda mensal.
+
+ **1. Cálculo de Capacidade:** 
+ O limite da parcela não pode exceder 30% da renda mensal.
 
  **2. Hard Rules (Reprovação Automática):**
 
