@@ -1,4 +1,4 @@
-# 🏦 Coop-Credit Engine: Pipeline de Risco de Crédito com Spark
+# Coop-Credit Engine: Pipeline de Risco de Crédito com Spark
 
 ![CI Status](https://github.com/ricardoribs/coop-credit-engine/actions/workflows/ci.yml/badge.svg)
 ![Spark](https://img.shields.io/badge/Big%20Data-PySpark-orange?style=for-the-badge&logo=apachespark)
@@ -9,11 +9,11 @@
 
 ---
 
-## 📌 1. Problema de Negócio
+## 1. Problema de Negócio
 
 Uma Cooperativa processa milhares de solicitações de empréstimo por dia. O processo manual atrasa aprovações, aumenta erros e não escala.
 
-🎯 **Objetivo:** Criar um *Decision Engine* capaz de aprovar ou reprovar crédito em segundos, cruzando:
+**Objetivo:** Criar um *Decision Engine* capaz de aprovar ou reprovar crédito em segundos, cruzando:
 * Renda declarada
 * Dívidas de mercado
 * Restrições de bureaus externos
@@ -22,7 +22,7 @@ Tudo num pipeline confiável e totalmente automatizado.
 
 ---
 
-## ⚙️ 2. Arquitetura do Sistema
+## 2. Arquitetura do Sistema
 
 Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
 * **Código Modular:** Funções puras, testáveis e desacopladas do Airflow (`src/`).
@@ -30,7 +30,7 @@ Este projeto segue boas práticas de Engenharia de Software aplicadas a dados:
 * **CI/CD:** GitHub Actions para validação contínua.
 * **Infraestrutura:** Containers reproduzíveis (Spark + Airflow).
 
-### 🔧 Stack Tecnológica
+### Stack Tecnológica
 
 * **Processamento:** Apache Spark (PySpark) – *compatível com Databricks*
 * **Orquestração:** Apache Airflow 2.9
@@ -52,7 +52,7 @@ graph LR
 ```
 
 ---
-## ⚙️ Regras de Concessão (Lógica de Negócio)
+## Regras de Concessão (Lógica de Negócio)
 O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
 
  **1. Cálculo de Capacidade:** 
@@ -77,7 +77,7 @@ O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
     )
 ```
 
-## 📂 Estrutura do Projeto Profissional
+## Estrutura do Projeto Profissional
 
 ```coop-credit-engine/
 ├── .github/workflows/   # Pipeline de CI/CD (GitHub Actions)
@@ -90,7 +90,7 @@ O motor de decisão aplica lógicas de negócio diretamente em Dataframes Spark:
 └── README.md            # Documentação Geral
 ```
 
-## 📸 Evidências de Execução
+## Evidências de Execução
 
 ### 1. Pipeline de Dados (Airflow)
 Fluxo completo de ingestão, processamento Spark e carga no DW executado com sucesso.
@@ -101,7 +101,7 @@ Consulta final demonstrando a aplicação das regras. Note que clientes com dív
 ![Tabela SQL](https://github.com/ricardoribs/Coop-Credit-Engine/blob/main/resultado.PNG)        
 
 
-## 🚀 Como Executar
+## Como Executar
 
 **1. Pré-requisitos**
  • Docker & Docker Compose
@@ -110,7 +110,7 @@ Consulta final demonstrando a aplicação das regras. Note que clientes com dív
  docker-compose up --build
 
 Acesse:
-👉 Airflow: http://localhost:8080
+Airflow: http://localhost:8080
 
 Login/Senha: airflow / airflow
 
